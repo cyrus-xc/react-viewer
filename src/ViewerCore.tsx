@@ -252,7 +252,6 @@ export default (props: ViewerProps) => {
     img.loading = activeImage.loading;
     img.crossOrigin = activeImage.crossOrigin;
     img.referrerPolicy = activeImage.referrerPolicy;
-    img.fetchPriority = activeImage.fetchPriority;
     if (img.complete) {
       loadComplete = true;
       loadImgSuccess(img.width, img.height, true);
@@ -693,7 +692,6 @@ export default (props: ViewerProps) => {
         imgloading={activeImg.loading}
         crossOrigin={activeImg.crossOrigin}
         referrerPolicy={activeImg.referrerPolicy}
-        fetchPriority={activeImg.fetchPriority}
       />
       {props.noFooter || (
         <div className={`${prefixCls}-footer`} style={{ zIndex: zIndex + 5 }}>

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { ImageDecorator } from './ViewerProps';
 
+type ReferrerPolicy = 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url';
+
 export interface ViewerNavProps {
   prefixCls: string;
   images: ImageDecorator[];
@@ -11,16 +13,16 @@ export interface ViewerNavProps {
 export default function ViewerNav(props: ViewerNavProps) {
   const { activeIndex = 0 } = props;
 
-  function handleChangeImg(newIndex) {
+  function handleChangeImg(newIndex: number) {
     if (activeIndex === newIndex) {
       return;
     }
     props.onChangeImg(newIndex);
   }
 
-  let marginLeft = `calc(50% - ${activeIndex + 1} * 31px)`;
-  let listStyle = {
-    marginLeft: marginLeft,
+  const marginLeft = `calc(50% - ${activeIndex + 1} * 31px)`;
+  const listStyle = {
+    marginLeft,
   };
 
   return (
@@ -36,12 +38,11 @@ export default function ViewerNav(props: ViewerNavProps) {
           >
             <img
               src={item.src}
-              alt={item.alt}
+              alt={item.alt || ''}
               loading={item.loading}
               decoding={item.decoding}
               crossOrigin={item.crossOrigin}
-              referrerPolicy={item.referrerPolicy}
-              fetchPriority={item.fetchPriority}
+              referrerPolicy={item.referrerPolicy as ReferrerPolicy}
             />
           </li>
         ))}

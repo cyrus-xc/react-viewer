@@ -9,19 +9,20 @@ if (fs.existsSync(distPath)) {
   fs.removeSync(distPath);
 }
 
+const tsProject = ts.createProject('tsconfig.json', {
+  declaration: true,
+  outDir: 'lib',
+});
+
 gulp.task('default', () => {
   const tsResult = gulp.src([
     'src/**/*.tsx',
     'src/**/*.ts',
     '!src/__tests__/**/*.tsx',
-  ]).pipe(ts({
-    target: 'es6',
-    jsx: 'preserve',
-    moduleResolution: 'node',
-    declaration: true,
-    allowSyntheticDefaultImports: true,
-    outDir: 'lib',
-  }));
-  const tsd = tsResult.dts.pipe(gulp.dest('lib'));
-  return merge2([tsd]);
+  ]).pipe(tsProject());
+
+  return merge2([
+    tsResult.dts.pipe(gulp.dest('lib')),
+    tsResult.js.pipe(gulp.dest('lib'))
+  ]);
 });

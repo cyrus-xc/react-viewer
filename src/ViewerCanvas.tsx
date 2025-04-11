@@ -1,6 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import Loading from './Loading';
 import classnames from 'classnames';
+
+type ReferrerPolicy = 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url';
 
 export interface ViewerCanvasProps {
   prefixCls: string;
@@ -20,11 +22,10 @@ export interface ViewerCanvasProps {
   drag: boolean;
   container: HTMLElement;
   onCanvasMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void;
-  decoding: string;
-  imgloading: string;
-  crossOrigin: string;
-  referrerPolicy: string;
-  fetchPriority: string;
+  decoding?: 'async' | 'sync' | 'auto';
+  imgloading?: 'eager' | 'lazy';
+  crossOrigin?: 'anonymous' | 'use-credentials';
+  referrerPolicy?: ReferrerPolicy;
 }
 
 export interface ViewerCanvasState {
@@ -165,7 +166,6 @@ translateX(${props.left !== null ? props.left + 'px' : 'aoto'}) translateY(${pro
     loading={props.imgloading}
     crossOrigin={props.crossOrigin}
     referrerPolicy={props.referrerPolicy}
-    fetchPriority={props.fetchPriority}
     />;
   }
   if (props.loading) {

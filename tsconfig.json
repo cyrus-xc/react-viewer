@@ -1,16 +1,29 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "moduleResolution": "node",
-    "jsx": "preserve",
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "jsx": "react",
+    "declaration": true,
     "sourceMap": true,
-    "removeComments": false,
+    "outDir": "./lib",
+    "strict": false,
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "noUnusedLocals": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "node_modules",
-    "__tests__"
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }

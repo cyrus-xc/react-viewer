@@ -1,3 +1,6 @@
+type CrossOrigin = 'anonymous' | 'use-credentials';
+type ReferrerPolicy = 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url';
+
 export interface ViewerImageSize {
   width: number;
   height: number;
@@ -8,11 +11,10 @@ export interface ImageDecorator {
   alt?: string;
   downloadUrl?: string;
   defaultSize?: ViewerImageSize;
-  referrerPolicy?: string;
-  crossOrigin?: string;
-  decoding?: string; // 'async' | 'auto' | 'sync'
-  loading?: string; // 'eager' | 'lazy'
-  fetchPriority?: string; // 'high' | 'low' | 'auto'
+  referrerPolicy?: ReferrerPolicy;
+  crossOrigin?: CrossOrigin;
+  decoding?: 'async' | 'auto' | 'sync';
+  loading?: 'eager' | 'lazy';
 }
 
 export interface ToolbarConfig {
