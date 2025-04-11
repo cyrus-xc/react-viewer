@@ -114,6 +114,11 @@ I'm sorry, ssr is not currently supported in `3.x`, it will be fixed in `4.0`.
 | alt  | string  |  -  | image description | false |
 | downloadUrl  | string  |  -  | image downlaod url | false |
 | defaultSize  | [ViewerImageSize](#viewerimagesize)  |  -  | image size | false |
+| referrerPolicy | string | - | HTML attribute | false
+| crossOrigin | string | - | HTML attribute | false
+| decoding | string | - | HTML attribute | false
+| loading | string | - | HTML attribute | false
+| fetchPriority | string | - | HTML attribute | false
 
 ### ViewerImageSize
 

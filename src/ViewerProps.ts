@@ -8,6 +8,11 @@ export interface ImageDecorator {
   alt?: string;
   downloadUrl?: string;
   defaultSize?: ViewerImageSize;
+  referrerPolicy?: string;
+  crossOrigin?: string;
+  decoding?: string; // 'async' | 'auto' | 'sync'
+  loading?: string; // 'eager' | 'lazy'
+  fetchPriority?: string; // 'high' | 'low' | 'auto'
 }
 
 export interface ToolbarConfig {

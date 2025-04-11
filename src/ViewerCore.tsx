@@ -248,6 +248,11 @@ export default (props: ViewerProps) => {
       }
     };
     img.src = activeImage.src;
+    img.decoding = activeImage.decoding;
+    img.loading = activeImage.loading;
+    img.crossOrigin = activeImage.crossOrigin;
+    img.referrerPolicy = activeImage.referrerPolicy;
+    img.fetchPriority = activeImage.fetchPriority;
     if (img.complete) {
       loadComplete = true;
       loadImgSuccess(img.width, img.height, true);
@@ -684,6 +689,11 @@ export default (props: ViewerProps) => {
         drag={drag}
         container={props.container}
         onCanvasMouseDown={handleCanvasMouseDown}
+        decoding={activeImg.decoding}
+        imgloading={activeImg.loading}
+        crossOrigin={activeImg.crossOrigin}
+        referrerPolicy={activeImg.referrerPolicy}
+        fetchPriority={activeImg.fetchPriority}
       />
       {props.noFooter || (
         <div className={`${prefixCls}-footer`} style={{ zIndex: zIndex + 5 }}>

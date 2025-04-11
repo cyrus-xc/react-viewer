@@ -20,6 +20,11 @@ export interface ViewerCanvasProps {
   drag: boolean;
   container: HTMLElement;
   onCanvasMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void;
+  decoding: string;
+  imgloading: string;
+  crossOrigin: string;
+  referrerPolicy: string;
+  fetchPriority: string;
 }
 
 export interface ViewerCanvasState {
@@ -156,6 +161,11 @@ translateX(${props.left !== null ? props.left + 'px' : 'aoto'}) translateY(${pro
     src={props.imgSrc}
     style={imgStyle}
     onMouseDown={handleMouseDown}
+    decoding={props.decoding}
+    loading={props.imgloading}
+    crossOrigin={props.crossOrigin}
+    referrerPolicy={props.referrerPolicy}
+    fetchPriority={props.fetchPriority}
     />;
   }
   if (props.loading) {
