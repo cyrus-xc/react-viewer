@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infeng/react-viewer.git"
+    "url": "git+https://github.com/cyrus-xc/react-viewer"
   },
   "keywords": [
     "react",
@@ -27,14 +27,14 @@
   "author": "infeng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/infeng/react-viewer/issues"
+    "url": "https://github.com/cyrus-xc/react-viewer/issues"
   },
   "files": [
     "dist",
     "lib"
   ],
   "typings": "lib/index.d.ts",
-  "homepage": "https://github.com/infeng/react-viewer#readme",
+  "homepage": "https://github.com/cyrus-xc/react-viewer#readme",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",

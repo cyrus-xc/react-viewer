@@ -29,9 +29,5 @@ export default (props: ViewerProps) => {
   if (!init) {
     return null;
   }
-  return ReactDOM.createPortal((
-    <ViewerCore
-      {...props}
-    />
-  ), container);
+  return ReactDOM.createPortal(<ViewerCore {...props} />, container);
 };
